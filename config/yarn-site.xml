@@ -8,7 +8,7 @@
     </property>
 	<property>
 		<name>yarn.application.classpath</name>
-		<value>/home/hduser/hadoop/etc/hadoop, /home/hduser/hadoop/share/hadoop/common/*, /home/hduser/hadoop/share/hadoop/common/lib/*, /home/hduser/hadoop/share/hadoop/hdfs/*, /home/hduser/hadoop/share/hadoop/hdfs/lib/*, /home/hduser/hadoop/share/hadoop/mapreduce/*, /home/hduser/hadoop/share/hadoop/mapreduce/lib/*, /home/hduser/hadoop/share/hadoop/yarn/*, /home/hduser/hadoop/share/hadoop/yarn/lib/*</value>
+		<value>/home/hadoop/hadoop/etc/hadoop, /home/hadoop/hadoop/share/hadoop/common/*, /home/hadoop/hadoop/share/hadoop/common/lib/*, /home/hadoop/hadoop/share/hadoop/hdfs/*, /home/hadoop/hadoop/share/hadoop/hdfs/lib/*, /home/hadoop/hadoop/share/hadoop/mapreduce/*, /home/hadoop/hadoop/share/hadoop/mapreduce/lib/*, /home/hadoop/hadoop/share/hadoop/yarn/*, /home/hadoop/hadoop/share/hadoop/yarn/lib/*</value>
 	</property>
     <property>
             <name>yarn.resourcemanager.hostname</name>
