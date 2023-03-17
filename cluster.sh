@@ -73,7 +73,7 @@ if [[ $1 = "install" ]]; then
   docker run -d --net hadoopnet --ip 172.20.1.1 -p 8088:8088 --hostname nodemaster --add-host node2:172.20.1.2 --add-host node3:172.20.1.3 --name nodemaster -it  madhudharmapuri/hadoop-3node-spark-hive-cluster:Hadoop bin/bash
   docker run -d --net hadoopnet --ip 172.20.1.2 --hostname node2 --add-host nodemaster:172.20.1.1 --add-host node3:172.20.1.3 --name node2 -it  madhudharmapuri/hadoop-3node-spark-hive-cluster:Spark bin/bash
   docker run -d --net hadoopnet --ip 172.20.1.3 --hostname node3 --add-host nodemaster:172.20.1.1 --add-host node2:172.20.1.2 --name node3 -it  madhudharmapuri/hadoop-3node-spark-hive-cluster:Spark bin/bash
-  docker run -d --net hadoopnet --ip 172.20.1.5 --hostname edge --add-host nodemaster:172.20.1.1 --add-host node2:172.20.1.2 --add-host node3:172.20.1.3 --add-host psqlhms:172.20.1.4 --name edge -it madhudharmapuri/hadoop-3node-spark-hive-cluster:edge bin/bash
+  docker run -d --net hadoopnet --ip 172.20.1.5 --hostname edge --add-host nodemaster:172.20.1.1 --add-host node2:172.20.1.2 --add-host node3:172.20.1.3 --add-host psqlhms:172.20.1.4 --name edge -it madhudharmapuri/hadoop-3node-spark-hive-cluster:edge 
   docker run -d --net hadoopnet --ip 172.20.1.6 -p 8080:8080 --hostname nifi --add-host nodemaster:172.20.1.1 --add-host node2:172.20.1.2 --add-host node3:172.20.1.3 --add-host psqlhms:172.20.1.4 --name nifi -it madhudharmapuri/hadoop-3node-spark-hive-cluster:nifi bin/bash
   docker run -d --net hadoopnet --ip 172.20.1.7  -p 8888:8888 --hostname huenode --add-host edge:172.20.1.5 --add-host nodemaster:172.20.1.1 --add-host node2:172.20.1.2 --add-host node3:172.20.1.3 --add-host psqlhms:172.20.1.4 --name hue -it madhudharmapuri/hadoop-3node-spark-hive-cluster:hue bin/bash 
   docker run -d --net hadoopnet --ip 172.20.1.8  -p 8081:8081 --hostname zeppelin --add-host edge:172.20.1.5 --add-host nodemaster:172.20.1.1 --add-host node2:172.20.1.2 --add-host node3:172.20.1.3 --add-host psqlhms:172.20.1.4 --name zeppelin -it madhudharmapuri/hadoop-3node-spark-hive-cluster:zeppelin bin/bash
@@ -96,14 +96,14 @@ if [[ $1 = "uninstall" ]]; then
   stopServices
   docker rmi madhudharmapuri/hadoop-3node-spark-hive-cluster:Hadoop madhudharmapuri/hadoop-3node-spark-hive-cluster:Spark myhadoopcluster:postgresql  madhudharmapuri/hadoop-3node-spark-hive-cluster:hue madhudharmapuri/hadoop-3node-spark-hive-cluster:edge madhudharmapuri/hadoop-3node-spark-hive-cluster:nifi madhudharmapuri/hadoop-3node-spark-hive-cluster:zeppelin -f
   docker network rm hadoopnet
-  docker system prune -fh
+  docker system prune -fa
 fi
 
 
 
 
 if [[ $1 = "start" ]]; then  
-docker start  nodemaster node2 node3  edge  psqlhms hue nifi zeppelin
+docker start  nodemaster node2 node3   edge  psqlhms hue nifi zeppelin
   startServices
   exit
 fi

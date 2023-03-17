@@ -4,10 +4,10 @@
 echo "Y" | ssh-keygen -t rsa -P "" -f config/id_rsa
 
 # Hadoop build
-#docker build -f ./docker-centos-hadoop-3-nodes/dockerfile . -t madhudharmapuri/hadoop-3node-spark-hive-cluster:Hadoop
+docker build -f ./docker-centos-hadoop-3-nodes/dockerfile . -t madhudharmapuri/hadoop-3node-spark-hive-cluster:Hadoop
 
 # Spark
-#docker build -f ./spark/dockerfile . -t madhudharmapuri/hadoop-3node-spark-hive-cluster:Spark
+docker build -f ./spark/dockerfile . -t madhudharmapuri/hadoop-3node-spark-hive-cluster:Spark
 
 # PostgreSQL Hive Metastore Server
 #docker build -f ./postgresql/dockerfile . -t madhudharmapuri/hadoop-3node-spark-hive-cluster:postgresql
@@ -16,7 +16,7 @@ echo "Y" | ssh-keygen -t rsa -P "" -f config/id_rsa
 #docker build -f ./hive/Dockerfile . -t madhudharmapuri/hadoop-3node-spark-hive-cluster:hive
 
 # Nifi
-docker build -f ./nifi/dockerfile . -t madhudharmapuri/hadoop-3node-spark-hive-cluster:nifi
+#docker build -f ./nifi/dockerfile . -t madhudharmapuri/hadoop-3node-spark-hive-cluster:nifi
 
 # Edge
 #docker build -f ./edge/dockerfile . -t madhudharmapuri/hadoop-3node-spark-hive-cluster:edge
